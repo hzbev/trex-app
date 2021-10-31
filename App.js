@@ -49,13 +49,13 @@ useEffect(() => {
     .catch((error) => console.error(error))
 }, []);
 const onRefresh = React.useCallback(() => {
-  fetch('http://192.168.100.20:4067/summary')
+  fetch('trexminer server api url')
     .then((response) => response.json())
     .then((json) => {
-      fetch('https://www.sparkpool.com/v1/bill/stats?currency=ETH&miner=sp_applelol')
+      fetch('https://www.sparkpool.com/v1/bill/stats?currency=ETH&miner=')
         .then((response1) => response1.json())
         .then((json1) => {
-          fetch('https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=ETH&to_currency=EUR&apikey=E5BVOHG28AQZ4MWZ')
+          fetch('https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=ETH&to_currency=EUR&apikey=')
             .then((response2) => response2.json())
             .then((json2) => {
               setBalance(parseFloat(json2["Realtime Currency Exchange Rate"]["5. Exchange Rate"]) * parseFloat(json1.data.balance))
